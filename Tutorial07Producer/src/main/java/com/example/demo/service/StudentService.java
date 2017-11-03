@@ -18,5 +18,7 @@ public interface StudentService
     void updateStudent (StudentModel student);
 
     CourseModel selectCourse(String id);
+
+    List<CourseModel> selectAllCourses ();
 }
 
