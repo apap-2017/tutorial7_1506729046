@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/rest")
 public class StudentRestController {
@@ -17,5 +19,11 @@ public class StudentRestController {
     public StudentModel view (@PathVariable(value="npm") String npm) {
         StudentModel student = studentService.selectStudent(npm);
         return student;
+    }
+
+    @RequestMapping("/student/viewall")
+    public List<StudentModel> viewAll (){
+        List<StudentModel> students = studentService.selectAllStudents();
+        return students;
     }
 }
