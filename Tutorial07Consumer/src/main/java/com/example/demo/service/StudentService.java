@@ -19,5 +19,7 @@ public interface StudentService
 
     CourseModel selectCourse(String id);
 
+    List<CourseModel> selectAllCourses ();
+
     void addCourse (String npm, String idCourse);
 }

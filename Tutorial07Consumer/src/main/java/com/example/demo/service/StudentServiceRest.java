@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.dao.CourseDAO;
 import com.example.demo.dao.StudentDAO;
 import com.example.demo.model.CourseModel;
 import com.example.demo.model.StudentModel;
@@ -17,6 +18,9 @@ public class StudentServiceRest implements StudentService {
 
     @Autowired
     private StudentDAO studentDAO;
+
+    @Autowired
+    private CourseDAO courseDAO;
 
     @Override
     public StudentModel selectStudent (String npm){
@@ -42,7 +46,15 @@ public class StudentServiceRest implements StudentService {
 
     @Override
     public CourseModel selectCourse(String id) {
-        return null;
+        log.info("REST - select student with id {}", id);
+        return courseDAO.selectCourse(id);
+    }
+
+    @Override
+    public List<CourseModel> selectAllCourses() {
+        log.info("REST - select all courses");
+        List<CourseModel> courses = courseDAO.selectAllCourses();
+        return courses;
     }
 
     @Override

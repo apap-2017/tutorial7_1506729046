@@ -60,5 +60,11 @@ public class StudentServiceDatabase implements StudentService
     }
 
     @Override
+    public List<CourseModel> selectAllCourses() {
+        log.info ("select all courses");
+        return studentMapper.selectAllCourses ();
+    }
+
+    @Override
     public void addCourse(String npm, String idCourse) {}
 }

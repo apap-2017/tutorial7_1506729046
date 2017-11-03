@@ -61,4 +61,12 @@ public interface StudentMapper
             "studentcourse.npm = student.npm " +
             "where studentcourse.id_course = #{id_course}")
     List<StudentModel> selectStudentCourses(@Param("id_course") String id_course);
+
+    @Select("select * from course")
+    @Results(value = {
+            @Result(property = "idCourse", column = "id_course"),
+            @Result(property = "name", column = "name"),
+            @Result(property = "credits", column = "credits")
+    })
+    List<CourseModel> selectAllCourses ();
 }
